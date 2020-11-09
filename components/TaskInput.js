@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, StyleSheet } from 'react-native';
+import { View, TextInput, Text, StyleSheet } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const TaskInput = (props) => {
     const [task, setTask] = useState('');
@@ -16,7 +17,13 @@ const TaskInput = (props) => {
                 onChangeText={taskInputHandler}
                 value={task}
                 placeholder="Enter text here." />
-            <Button title="Add" onPress={props.onTaskAddition.bind(this, task)} />
+            <TouchableOpacity 
+            style={styles.saveButton}
+            onPress={() => {
+                props.onTaskAddition(task); setTask('')
+            }} >
+                <Text>Save</Text>
+            </TouchableOpacity>
         </View>
     )
 }
@@ -32,6 +39,11 @@ const styles = StyleSheet.create({
     inputText: {
         width: '80%',
         padding: 10
+    },
+    saveButton: {
+        borderWidth: 0.8,
+        borderRadius: 7,
+        padding: 5
     }
 });
 

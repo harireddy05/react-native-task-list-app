@@ -12,7 +12,7 @@ export default function App() {
 
   return (
     <NavigationContainer>{/* Rest of your app code */}
-      <View style={{ flex: 1 }}>        
+      <View style={{ flex: 1 }}>
         <Stack.Navigator>
           <Stack.Screen name="The Templist" component={Home} />
         </Stack.Navigator>
@@ -24,9 +24,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   titleText: {
-    textAlign: "center",
-    fontSize: 30,
-    paddingTop: 30
+    fontStyle: "normal"
   }
 });
 

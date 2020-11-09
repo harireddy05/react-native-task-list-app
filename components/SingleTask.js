@@ -11,7 +11,6 @@ const SingleTask = (props) => {
                 </Text>
             </View>
         </TouchableOpacity >
-
     )
 }
 
@@ -19,7 +18,8 @@ const styles = StyleSheet.create({
     listItem: {
         padding: 10,
         margin: 5,
-        backgroundColor: '#ccc'
+        backgroundColor: '#ccc',
+        borderRadius: 7
     }
 });
 
