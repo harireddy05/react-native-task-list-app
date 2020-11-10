@@ -3,6 +3,7 @@ import { View, TextInput, Text, StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const TaskInput = (props) => {
+
     const [task, setTask] = useState('');
 
     const taskInputHandler = (enteredText) => {
@@ -17,11 +18,11 @@ const TaskInput = (props) => {
                 onChangeText={taskInputHandler}
                 value={task}
                 placeholder="Enter text here." />
-            <TouchableOpacity 
-            style={styles.saveButton}
-            onPress={() => {
-                props.onTaskAddition(task); setTask('')
-            }} >
+            <TouchableOpacity
+                style={styles.saveButton}
+                onPress={() => {
+                    props.onTaskAddition(task); setTask('')
+                }} >
                 <Text>Save</Text>
             </TouchableOpacity>
         </View>
@@ -48,3 +49,4 @@ const styles = StyleSheet.create({
 });
 
 export default TaskInput;
+

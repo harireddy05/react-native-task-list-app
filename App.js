@@ -3,22 +3,27 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import 'react-native-gesture-handler';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import Home from './pages/Home';
+
+import { store } from './store/reducers/rootReducer';
+import { Provider } from 'react-redux';
 
 const Stack = createStackNavigator();
 
 export default function App() {
 
   return (
-    <NavigationContainer>{/* Rest of your app code */}
-      <View style={{ flex: 1 }}>
-        <Stack.Navigator>
-          <Stack.Screen name="The Templist" component={Home} />
-        </Stack.Navigator>
-        <StatusBar style="auto" />
-      </View>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <View style={{ flex: 1 }}>
+          <Stack.Navigator>
+            <Stack.Screen name="The Minima list" component={Home} />
+          </Stack.Navigator>
+          <StatusBar style="auto" />
+        </View>
+      </NavigationContainer>
+    </Provider>
   );
 }
 
