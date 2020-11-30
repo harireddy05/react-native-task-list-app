@@ -6,7 +6,7 @@ import TaskInput from '../components/TaskInput';
 import { addTask, deleteTask } from '../store/actions/mealsAction';
 import { store } from '../store/reducers/rootReducer';
 
-export default function Home() {
+export default function Home({ navigation }) {
 
     const rootTasks = useSelector(state => state.tasks)
     const [list, setList] = useState(rootTasks);
@@ -14,13 +14,11 @@ export default function Home() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        // console.log(store.getState().tasks);
         setList(store.getState().tasks);
     });
 
     const deleteTaskHandler = (taskID) => {
-        dispatch(deleteTask(taskID));        
-        // setList(list => { return list.filter((ye => ye.key !== taskID)) })
+        dispatch(deleteTask(taskID));
         ToastAndroid.show("That one's in the past now!", ToastAndroid.SHORT);
     }
 
@@ -30,11 +28,6 @@ export default function Home() {
             ToastAndroid.show("Can't add an empty task!", ToastAndroid.SHORT);
         } else {
             dispatch(addTask(task));
-            // setList(list => [{
-            //     key: Math.random().toString(),
-            //     title: task,
-            //     completed: false
-            // }, ...list]);
         }
     }
 

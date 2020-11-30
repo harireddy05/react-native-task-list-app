@@ -21,6 +21,9 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "android": {
+      "package": "com.harireddy05.myfirst"
     }
   }
 }
